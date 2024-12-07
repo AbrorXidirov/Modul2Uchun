@@ -47,7 +47,7 @@ def evaluation(y_test, y_pred):
 evaluation(y_test, y_pred)
 
 # Modelni faylga saqlash
-with open('RandomForest.pkl', 'wb') as f:
+with open('RandomForestasl.pkl', 'wb') as f:
     pickle.dump(rf, f)
 
 # Agar modelni Streamlit orqali ishlatish kerak bo'lsa:
