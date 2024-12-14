@@ -69,8 +69,7 @@ HeartDisease = st.selectbox("Yurak kasalligi mavjudmi?", options=[0, 1])
 
 # Bashorat qilish uchun tugma
 if st.button("Bashorat qilish"):
-    features = np.array([[Age, Glukoza, BMI, Hypertension, HeartDisease, 
-                          AfricanAmerican, Asian, Caucasian, Hispanic, Other]])
+    features = np.array([[Age, Glukoza, BMI, Hypertension, HeartDisease, ]]) #AfricanAmerican, Asian, Caucasian, Hispanic, Other
     features = scaler.transform(features) 
 
     # Modelni yuklash
