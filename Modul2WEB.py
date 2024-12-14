@@ -13,7 +13,8 @@ url = "https://raw.githubusercontent.com/AbrorXidirov/Modul2Uchun/refs/heads/mai
 data = pd.read_csv(url)
 
 # X (kirish o'zgaruvchilari) va y (natija) ni aniqlash
-X = data[['age', 'blood_glucose_level', 'bmi', 'hypertension', 'heart_disease', ]]
+X = data[['age', 'blood_glucose_level', 'bmi', 'hypertension', 'heart_disease',
+          'race:AfricanAmerican', 'race:Asian', 'race:Caucasian', 'race:Hispanic', 'race:Other']]
 y = data['diabetes']  # Maqsadli o'zgaruvchi (kasallik holati)
 
 # Datasetni 80% train va 20% test uchun ajratish
@@ -61,15 +62,15 @@ Glukoza = st.number_input("Glukoza miqdori: ", format="%.1f", min_value=0.0)
 BMI = st.number_input("BMI: ", format="%.1f", min_value=0.0)
 Hypertension = st.selectbox("Gipertenziya mavjudmi?", options=[0, 1])
 HeartDisease = st.selectbox("Yurak kasalligi mavjudmi?", options=[0, 1])
-# AfricanAmerican = st.selectbox("Irq: Afro-amerikalik", options=[0, 1])
-# Asian = st.selectbox("Irq: Osiyolik", options=[0, 1])
-# Caucasian = st.selectbox("Irq: Kavkazlik", options=[0, 1])
-# Hispanic = st.selectbox("Irq: Ispan tilida so'zlashuvchi", options=[0, 1])
-# Other = st.selectbox("Irq: Boshqa", options=[0, 1])
+AfricanAmerican = st.selectbox("Irq: Afro-amerikalik", options=[0, 1])
+Asian = st.selectbox("Irq: Osiyolik", options=[0, 1])
+Caucasian = st.selectbox("Irq: Kavkazlik", options=[0, 1])
+Hispanic = st.selectbox("Irq: Ispan tilida so'zlashuvchi", options=[0, 1])
+Other = st.selectbox("Irq: Boshqa", options=[0, 1])
 
 # Bashorat qilish uchun tugma
 if st.button("Bashorat qilish"):
-    features = np.array([[Age, Glukoza, BMI, Hypertension, HeartDisease, ]]) #AfricanAmerican, Asian, Caucasian, Hispanic, Other
+    features = np.array([[Age, Glukoza, BMI, Hypertension, HeartDisease, AfricanAmerican, Asian, Caucasian, Hispanic, Other ]]) #AfricanAmerican, Asian, Caucasian, Hispanic, Other
     features = scaler.transform(features) 
 
     # Modelni yuklash
