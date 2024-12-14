@@ -75,7 +75,7 @@ if st.button("Bashorat qilish"):
 
     # Modelni yuklash
     try:
-        with open('RandomForest.pkl', 'rb') as file:
+        with open('RandomForestasl.pkl', 'rb') as file:
             decision_tree_model = pickle.load(file)
     except Exception as e:
         st.error(f"Modelni yuklashda xato: {e}")
